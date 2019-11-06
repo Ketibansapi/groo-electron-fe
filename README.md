@@ -1,45 +1,80 @@
-# electron-quick-start
+[![Electron Logo](https://electronjs.org/images/electron-logo.svg)](https://electronjs.org)
 
-**Clone and run for a quick way to see Electron in action.**
 
-This is a minimal Electron application based on the [Quick Start Guide](https://electronjs.org/docs/tutorial/quick-start) within the Electron documentation.
+[![CircleCI Build Status](https://circleci.com/gh/electron/electron/tree/master.svg?style=shield)](https://circleci.com/gh/electron/electron/tree/master)
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/4lggi9dpjc1qob7k/branch/master?svg=true)](https://ci.appveyor.com/project/electron-bot/electron-ljo26/branch/master)
+[![devDependency Status](https://david-dm.org/electron/electron/dev-status.svg)](https://david-dm.org/electron/electron?type=dev)
 
-**Use this app along with the [Electron API Demos](https://electronjs.org/#get-started) app for API code examples to help you get started.**
+:memo: Available Translations: 🇨🇳 🇹🇼 🇧🇷 🇪🇸 🇰🇷 🇯🇵 🇷🇺 🇫🇷 🇹🇭 🇳🇱 🇹🇷 🇮🇩 🇺🇦 🇨🇿 🇮🇹 🇵🇱.
+View these docs in other languages at [electron/i18n](https://github.com/electron/i18n/tree/master/content/).
 
-A basic Electron application needs just these files:
+The Electron framework lets you write cross-platform desktop applications
+using JavaScript, HTML and CSS. It is based on [Node.js](https://nodejs.org/) and
+[Chromium](https://www.chromium.org) and is used by the [Atom
+editor](https://github.com/atom/atom) and many other [apps](https://electronjs.org/apps).
 
-- `package.json` - Points to the app's main file and lists its details and dependencies.
-- `main.js` - Starts the app and creates a browser window to render HTML. This is the app's **main process**.
-- `index.html` - A web page to render. This is the app's **renderer process**.
+Follow [@ElectronJS](https://twitter.com/electronjs) on Twitter for important
+announcements.
 
-You can learn more about each of these components within the [Quick Start Guide](https://electronjs.org/docs/tutorial/quick-start).
+This project adheres to the Contributor Covenant
+[code of conduct](https://github.com/electron/electron/tree/master/CODE_OF_CONDUCT.md).
+By participating, you are expected to uphold this code. Please report unacceptable
+behavior to [coc@electronjs.org](mailto:coc@electronjs.org).
 
-## To Use
+## Installation
 
-To clone and run this repository you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
+To install prebuilt Electron binaries, use [`npm`](https://docs.npmjs.com/).
+The preferred method is to install Electron as a development dependency in your
+app:
 
-```bash
-# Clone this repository
+```sh
+npm install electron --save-dev [--save-exact]
+```
+
+The `--save-exact` flag is recommended for Electron prior to version 2, as it does not follow semantic
+versioning. As of version 2.0.0, Electron follows semver, so you don't need `--save-exact` flag. For info on how to manage Electron versions in your apps, see
+[Electron versioning](docs/tutorial/electron-versioning.md).
+
+For more installation options and troubleshooting tips, see
+[installation](docs/tutorial/installation.md).
+
+## Quick start & Electron Fiddle
+
+Use [`Electron Fiddle`](https://github.com/electron/fiddle)
+to build, run, and package small Electron experiments, to see code examples for all of Electron's APIs, and
+to try out different versions of Electron. It's designed to make the start of your journey with
+Electron easier.
+
+Alternatively, clone and run the
+[electron/electron-quick-start](https://github.com/electron/electron-quick-start)
+repository to see a minimal Electron app in action:
+
+```sh
 git clone https://github.com/electron/electron-quick-start
-# Go into the repository
 cd electron-quick-start
-# Install dependencies
 npm install
-# Run the app
 npm start
 ```
 
-Note: If you're using Linux Bash for Windows, [see this guide](https://www.howtogeek.com/261575/how-to-run-graphical-linux-desktop-applications-from-windows-10s-bash-shell/) or use `node` from the command prompt.
+## Programmatic usage
 
-## Resources for Learning Electron
+Most people use Electron from the command line, but if you require `electron` inside
+your **Node app** (not your Electron app) it will return the file path to the
+binary. Use this to spawn Electron from Node scripts:
 
-- [electronjs.org/docs](https://electronjs.org/docs) - all of Electron's documentation
-- [electronjs.org/community#boilerplates](https://electronjs.org/community#boilerplates) - sample starter apps created by the community
-- [electron/electron-quick-start](https://github.com/electron/electron-quick-start) - a very basic starter Electron app
-- [electron/simple-samples](https://github.com/electron/simple-samples) - small applications with ideas for taking them further
-- [electron/electron-api-demos](https://github.com/electron/electron-api-demos) - an Electron app that teaches you how to use Electron
-- [hokein/electron-sample-apps](https://github.com/hokein/electron-sample-apps) - small demo apps for the various Electron APIs
+```javascript
+const electron = require('electron')
+const proc = require('child_process')
+
+// will print something similar to /Users/maf/.../Electron
+console.log(electron)
+
+// spawn Electron
+const child = proc.spawn(electron)
+```
 
 ## License
 
-[CC0 1.0 (Public Domain)](LICENSE.md)
+[MIT](https://github.com/electron/electron/blob/master/LICENSE)
+
+When using the Electron or other GitHub logos, be sure to follow the [GitHub logo guidelines](https://github.com/logos).
