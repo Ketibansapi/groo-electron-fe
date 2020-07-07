@@ -16,7 +16,7 @@
   ],
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "^7.0.1"
+    "electron": "^7.2.4"
   },
   "bugs": {
     "url": "https://github.com/electron/electron-quick-start/issues"
